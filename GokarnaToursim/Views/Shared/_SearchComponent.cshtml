@@ -1,0 +1,31 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div div class = "search-component">
+<label for= "location">Location:</label>
+<input type="text" id="location" placeholder="Enter Location" />
+
+<label for="checkin">Check-In Date:</label>
+<input type="date" id="checkin" />
+
+<label for="checkout">Check-out Date:</label>
+<input type="date" id="checkout" />
+
+<button id="search">Search</button>
+
+
+ </div>
+
+@section Scripts {
+    <script>
+        // Add your JavaScript code here
+        document.getElementById("location").addEventListener("change", function () {
+            // Automatically focus on the check-in date input
+            document.getElementById("checkin").focus();
+        });
+    </script>
+}
+
