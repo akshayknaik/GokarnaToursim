@@ -4,28 +4,57 @@
 @{
 }
 
-<div div class = "search-component">
-<label for= "location">Location:</label>
-<input type="text" id="location" placeholder="Enter Location" />
+<div class="search-component row align-items-end">
+    <div class="col-md-3 form-group">
+        <label for="location">Location:</label>
+        <input type="text" class="form-control" id="location" name="location" placeholder="Enter location" />
+    </div>
+    <div class="col-md-3 form-group">
+        <label for="checkin">Check-In Date:</label>
+        <input type="date" class="form-control" id="checkin" name="checkin" min="@DateTime.Now.ToString("yyyy-MM-dd")" />
+    </div>
+    <div class="col-md-3 form-group">
+        <label for="checkout">Check-Out Date:</label>
+        <input type="date" class="form-control" id="checkout" name="checkout" min="@DateTime.Now.ToString("yyyy-MM-dd")" />
+    </div>
+    <div class="col-md-3">
+        <button class="btn btn-primary btn-block align-self-end" id="searchButton">Search</button>
+    </div>
+</div>
 
-<label for="checkin">Check-In Date:</label>
-<input type="date" id="checkin" />
+<script >
+var checkinInput = document.getElementById("checkin");
+var checkoutInput = document.getElementById("checkout");
 
-<label for="checkout">Check-out Date:</label>
-<input type="date" id="checkout" />
+    var currentCheckinDate = new Date();
 
-<button id="search">Search</button>
+    // Calculate the checkout date
+    var currentCheckoutDate = new Date(currentCheckinDate);
+    currentCheckoutDate.setDate(currentCheckinDate.getDate() + 1);
 
+    // Format the current date as "yyyy-MM-dd"
+    var initialCheckinDate = currentCheckinDate.toISOString().split("T")[0];
+    var initialCheckoutDate = currentCheckoutDate.toISOString().split("T") [0];
 
- </div>
+    checkinInput.value = initialCheckinDate;
+    checkoutInput.value = initialCheckoutDate;
 
-@section Scripts {
-    <script>
-        // Add your JavaScript code here
-        document.getElementById("location").addEventListener("change", function () {
-            // Automatically focus on the check-in date input
-            document.getElementById("checkin").focus();
-        });
-    </script>
-}
+    checkinInput.addEventListener("change", function () {
+        var checkinDate = new Date(checkinInput.value);
+        var checkoutDate = new Date(checkinDate);
+        checkoutDate.setDate(checkinDate.getDate() + 1);
 
+        var formattedCheckoutDate = checkoutDate.toISOString().split("T")[0];
+
+        checkoutInput.value = formattedCheckoutDate; // Set the Check-Out Date to the next day
+    });
+
+    checkoutInput.addEventListener("change", function () {
+        var checkoutDate = new Date(checkoutInput.value);
+        var checkinDate = new Date(checkinInput.value);
+
+        if (checkoutDate <= checkinDate) {
+            checkoutInput.value = formattedCheckoutDate; // Reset to the next day if invalid date selected
+        }
+    });
+</script>
