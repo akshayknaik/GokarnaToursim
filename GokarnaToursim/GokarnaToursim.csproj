@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -7,10 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
     <Folder Include="Controllers\" />
+    <Folder Include="Models\" />
     <Folder Include="Services\" />
     <Folder Include="ViewModels\" />
+	  
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="jQuery.UI.Combined" Version="1.13.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
   </ItemGroup>
 
 </Project>

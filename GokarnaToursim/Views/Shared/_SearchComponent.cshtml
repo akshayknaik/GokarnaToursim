@@ -4,28 +4,21 @@
 @{
 }
 
-<div div class = "search-component">
-<label for= "location">Location:</label>
-<input type="text" id="location" placeholder="Enter Location" />
-
-<label for="checkin">Check-In Date:</label>
-<input type="date" id="checkin" />
-
-<label for="checkout">Check-out Date:</label>
-<input type="date" id="checkout" />
-
-<button id="search">Search</button>
-
-
- </div>
-
-@section Scripts {
-    <script>
-        // Add your JavaScript code here
-        document.getElementById("location").addEventListener("change", function () {
-            // Automatically focus on the check-in date input
-            document.getElementById("checkin").focus();
-        });
-    </script>
-}
-
+<div class="search-component row align-items-end">
+    <div class="col-md-3 form-group">
+        <label for="location">Location:</label>
+        <input type="text" class="form-control" id="location" name="location" placeholder="Enter location" />
+    </div>
+    <div class="col-md-3 form-group">
+        <label for="checkin">Check-In Date:</label>
+        <input type="date" class="form-control" id="checkin" name="checkin" min="@DateTime.Now.ToString("yyyy-MM-dd")" />
+    </div>
+    <div class="col-md-3 form-group">
+        <label for="checkout">Check-Out Date:</label>
+        <input type="date" class="form-control" id="checkout" name="checkout" min="@DateTime.Now.ToString("yyyy-MM-dd")" />
+    </div>
+    <div class="col-md-3">
+        <button class="btn btn-primary btn-block align-self-end" id="searchButton">Search</button>
+    </div>
+</div>
+<script src="~/js/datepicker.js"> </script>

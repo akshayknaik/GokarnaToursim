@@ -16,5 +16,6 @@ namespace GokarnaToursim.Pages
         {
 
         }
+        public DateTime Datedata { get; set; }
     }
 }
