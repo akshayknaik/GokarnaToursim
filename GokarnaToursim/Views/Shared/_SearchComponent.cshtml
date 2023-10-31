@@ -1,0 +1,25 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="search-component row align-items-end">
+    <div class="col-md-3 form-group">
+        <label for="location">Location:</label>
+        <input type="text" class="form-control" id="location" name="location" placeholder="Enter location" />
+    </div>
+    <div class="col-md-3 form-group">
+        <label for="checkin">Check-In Date:</label>
+        <input type="date" class="form-control" id="checkin" name="checkin" min="@DateTime.Now.ToString("yyyy-MM-dd")" />
+    </div>
+    <div class="col-md-3 form-group">
+        <label for="checkout">Check-Out Date:</label>
+        <input type="date" class="form-control" id="checkout" name="checkout" min="@DateTime.Now.ToString("yyyy-MM-dd")" />
+    </div>
+    <div class="col-md-3">
+        <button class="btn btn-primary btn-block align-self-end" id="searchButton">Search</button>
+    </div>
+</div>
+
+<script src ="~/js/DateValidation.js"></script>
