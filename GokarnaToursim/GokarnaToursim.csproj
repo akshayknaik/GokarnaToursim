@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -7,10 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\lib\Why-Should-Hotels-Care-About-Reducing-their-Carbon-Footprint-1170x490.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Controllers\" />
     <Folder Include="Services\" />
     <Folder Include="ViewModels\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\images\1920-X-819-new.jpg" />
+    <None Include="wwwroot\images\Why-Should-Hotels-Care-About-Reducing-their-Carbon-Footprint-1170x490.jpg" />
   </ItemGroup>
 
 </Project>
