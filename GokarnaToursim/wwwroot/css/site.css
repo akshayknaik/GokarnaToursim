@@ -16,3 +16,57 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/* Styles for the slider */
+.slider {
+    position: relative;
+    width: 100%;
+    max-width: 100%; /* Adjust as needed */
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    min-width: 100%;
+    flex-shrink: 0;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+/* Styles for the previous and next buttons */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+/* CSS */
+.full-width-image {
+    width: 100vw; /* 100% of the viewport width */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensures the image behaves as a block element */
+    margin: 0; /* Remove any default margins */
+    padding: 0; /* Remove any default padding */
+}
